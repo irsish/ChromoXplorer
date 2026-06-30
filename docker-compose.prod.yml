@@ -1,0 +1,9 @@
+# Production/server overrides — adds SSL certs and port 443.
+# Used by GH Actions: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  frontend:
+    ports:
+      - "443:443"
+    volumes:
+      - /etc/ssl/app:/etc/ssl/app:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro

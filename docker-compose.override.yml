@@ -1,0 +1,12 @@
+# Local development overrides — auto-loaded by Docker Compose when you run
+# `docker compose up` in this directory.
+#
+# This file is NOT deployed to servers. The GH Actions SCP step only copies
+# specific listed files, so this never reaches dev or prod.
+#
+# What it does: mounts an HTTP-only nginx config over the SSL one baked into
+# the image, so you don't need Let's Encrypt certs locally.
+services:
+  frontend:
+    volumes:
+      - ./frontend/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
