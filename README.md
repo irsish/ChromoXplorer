@@ -1,50 +1,173 @@
-# ChromoXplorer
+# ChromoXplorer — Backend
 
-ChromoXplorer is a research-driven visualization project focused on understanding and communicating the three-dimensional (3D) organization of genomes. It provides an interactive system that helps users explore genome structure across multiple levels of biological organization with an emphasis on spatial context, clarity, and usability.
+Express.js REST API for ChromoXplorer. Handles user profile management, genomic dataset metadata, and S3 file access. Connects to MongoDB and runs on port 3000.
 
 ## Tech Stack
 
-- MERN (MongoDB, Express.js, React, Node.js) for the core web application.
-- AWS services for authentication, hosting, and planned dataset storage.
+| | |
+|---|---|
+| Runtime | Node.js 22 |
+| Framework | Express 5 |
+| Database | MongoDB 8 via Mongoose 8 |
+| Storage | AWS S3 via @aws-sdk/client-s3 |
+| Auth | Stateless — identity provided by AWS Cognito `sub` claim in requests |
 
-## Project Goals and Vision
+## Structure
 
-- Build a flexible platform for exploring genome organization in a way that mirrors modern biological understanding.
-- Emphasize physical shape, spatial relationships, and hierarchical organization over flat or symbolic views.
-- Support both education and exploratory research without sacrificing scientific meaning.
+```
+backend/
+├── config/
+│   └── s3.js               S3 client initialization
+├── controllers/
+│   ├── cellsController.js  Handlers for cell/dataset endpoints
+│   └── usersController.js  Handlers for user profile endpoints
+├── db/
+│   └── mongo.js            MongoDB connection setup
+├── models/
+│   ├── cell.js             Mongoose schema for genomic datasets
+│   └── user.js             Mongoose schema for user profiles
+├── routes/
+│   ├── cells.js            Cell route definitions
+│   └── users.js            User route definitions
+├── scripts/
+│   └── set-cors.js         Applies CORS config to S3 bucket on startup
+└── server.js               Entry point
+```
 
-## Problem Statement
+## API Reference
 
-Traditional genome visualization tools often rely on highly abstract representations (e.g., linear tracks or uniform blocks). While efficient for dense data, they can obscure spatial relationships that are critical for understanding 3D genome organization. ChromoXplorer addresses this gap with spatial visualization and hierarchical navigation that helps users connect structure to function.
+### Health / Debug
 
-## Conceptual Exploration Model
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/` | Health check — returns `{ status: "ok" }` |
+| `GET` | `/test` | Simple string response for smoke testing |
+| `GET` | `/db-test` | Reads from the test collection in MongoDB |
 
-ChromoXplorer supports three primary levels of visualization:
+### Users — `/users`
 
-1. Chromosome Territories: a nucleus-level view of how chromosomes occupy distinct 3D regions.
-2. A/B Compartments: a zoomed view into a chromosome to show functionally distinct chromatin regions.
-3. TADs and Genes: localized 3D structures with gene-level elements and interactions.
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/users` | Return all user records |
+| `POST` | `/users` | Create a new user (called after first Cognito login) |
+| `GET` | `/users/:sub` | Fetch a single user by their Cognito `sub` claim |
+| `PATCH` | `/users/:sub` | Update profile fields and mark profile as completed |
 
-## Current State
+**User document fields:**
 
-The project is in a prototype phase. The system demonstrates abstracted visualizations of chromosome territories and A/B compartments with mock data, and early work toward TAD and gene visualizations using sample data provided by the stakeholder team.
+| Field | Type | Description |
+|---|---|---|
+| `sub` | String | Cognito user ID (unique, indexed) |
+| `email` | String | User email address |
+| `location.city` | String | Optional city |
+| `location.region` | String | Optional region/state |
+| `location.country` | String | Optional country |
+| `useCaseReason` | String | Why the user is using the platform |
+| `preferences.theme` | `light` \| `dark` \| `system` | UI theme preference |
+| `preferences.starfieldEnabled` | Boolean | Background starfield toggle |
+| `optionalDataOptOut` | Boolean | Whether user opted out of optional data collection |
+| `profileCompleted` | Boolean | Set to `true` after first-login profile completion |
 
-## Technical Architecture
+### Cells — `/cells`
 
-ChromoXplorer uses a MERN stack:
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/cells` | Return all cell/dataset records |
+| `GET` | `/cells/files` | Return all cell records including file metadata |
+| `GET` | `/cells/:cellName` | Fetch a single cell by name |
+| `GET` | `/cells/:cellName/chromosomes/:chromosome?resolution=1mb` | Get the S3 file for a specific chromosome at a given resolution (`1mb` or `5kb`, defaults to `1mb`) |
+| `GET` | `/cells/:cellName/ab-compartments` | Get the A/B compartments file for a cell |
 
-- Frontend: React for interactive 3D visualization and user interaction.
-- Backend: Express.js for data requests and processing.
-- Database: MongoDB for flexible genome-related data storage.
-- Authentication: AWS Cognito for user management and secure access.
-- Infrastructure: AWS Lightsail for hosting (separate instances for frontend, backend, and database).
-- Data Storage: AWS S3 planned for serving datasets.
+**Cell document fields:**
 
-## Future Direction
+| Field | Type | Description |
+|---|---|---|
+| `cellName` | String | Unique identifier (lowercase, indexed) |
+| `displayName` | String | Human-readable name |
+| `description` | String | Dataset description |
+| `abCompartmentsFile` | String | S3 URL for the A/B compartments data file |
+| `chromosomes` | Array | List of chromosome file entries (see below) |
 
-Planned growth areas include:
+**Chromosome entry (in `/cells/:cellName` response):**
 
-- Integration of additional real-world genomic datasets.
-- Enhanced interaction and filtering capabilities.
-- Improved visual fidelity and performance.
-- Comparative analysis across samples or conditions.
+| Field | Type | Description |
+|---|---|---|
+| `chromosome` | String | Chromosome name (e.g., `chr1`, `chrX`) |
+| `format` | String | File format (e.g., `pdb`) |
+| `resolutions` | String[] | Available resolutions (e.g., `["1mb", "5kb"]`) |
+| `url` | String | Backend proxy path — append `?resolution=` to select a file |
+
+**Resolution file entry (`files[]`):**
+
+| Field | Type | Description |
+|---|---|---|
+| `resolution` | String | Resolution label (e.g., `1mb`, `5kb`) |
+| `s3Key` | String | S3 object key |
+| `s3Url` | String | Full S3 URL |
+| `size` | Number | File size in bytes |
+| `version` | Number | File version number |
+| `lastUpdated` | Date | Last update timestamp |
+
+## Local Development (without Docker)
+
+### Prerequisites
+
+- Node.js 22+
+- A running MongoDB instance (local or Atlas)
+
+### Setup
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the `backend/` directory (or in the project root):
+
+```env
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/chromoxplorer
+CORS_ORIGIN=http://localhost:5173
+AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
+AWS_REGION=us-east-1
+AWS_S3_BUCKET_NAME=YOUR_BUCKET_NAME
+AWS_S3_BUCKET_URL=https://YOUR_BUCKET_NAME.s3.us-east-1.amazonaws.com
+```
+
+### Run
+
+```bash
+npm start       # starts server on port 3000
+```
+
+Verify the server is up:
+
+```bash
+curl http://localhost:3000/
+# → {"status":"ok"}
+
+curl http://localhost:3000/db-test
+# → lists documents from the test collection
+```
+
+## Environment Variables
+
+| Variable | Description | Example |
+|---|---|---|
+| `NODE_ENV` | `development` enables verbose Express logging | `production` |
+| `MONGODB_URI` | Full MongoDB connection string | `mongodb://user:pass@mongodb:27017/chromoxplorer?authSource=chromoxplorer` |
+| `CORS_ORIGIN` | Comma-separated list of allowed origins | `http://localhost,https://yourdomain.com` |
+| `AWS_ACCESS_KEY_ID` | IAM access key with S3 permissions | `AKIAIOSFODNN7EXAMPLE` |
+| `AWS_SECRET_ACCESS_KEY` | IAM secret key | `wJalrXUtnFEMI/K7MDENG/...` |
+| `AWS_REGION` | AWS region for S3 | `us-east-1` |
+| `AWS_S3_BUCKET_NAME` | S3 bucket name | `chromoxplorer-datasets` |
+| `AWS_S3_BUCKET_URL` | Full base URL to the S3 bucket | `https://chromoxplorer-datasets.s3.us-east-1.amazonaws.com` |
+
+> In Docker-based deployments these are provided by the root `.env` file via `docker-compose.yml`. You do not need a separate `.env` in the `backend/` directory for Docker builds.
+
+## Production Build (Docker)
+
+The backend Dockerfile uses Node 22 Alpine with a non-root `node` user. It runs `npm ci` with cache mounts for a lean, reproducible image and starts the server with `npm start`.
+
+See the root [README](../README.md) for full Docker deployment instructions.
