@@ -1,9 +1,11 @@
-# Production/server overrides — adds SSL certs and port 443.
+# Production/server overrides — adds SSL certs for chromoxplorer.org and port 443.
 # Used by GH Actions: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 services:
   frontend:
     ports:
+      - "80:80"
       - "443:443"
     volumes:
-      - /etc/ssl/app:/etc/ssl/app:ro
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/www/certbot:/var/www/certbot:ro
+      - /etc/letsencrypt/live/chromoxplorer.org/fullchain.pem:/etc/ssl/app/fullchain.pem:ro
+      - /etc/letsencrypt/live/chromoxplorer.org/privkey.pem:/etc/ssl/app/privkey.pem:ro

@@ -1,0 +1,45 @@
+@import url('https://fonts.cdnfonts.com/css/neon-goodshine');
+@font-face {
+  font-family: 'POLDER-Regular';
+  src: url('../assets/fonts/Polder-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ==============================
+   CHROMOXPLORER GLOBAL THEME
+   (Figma-Matched Version)
+============================== */
+
+:root {
+  /* ===== Core Brand Colors ===== */
+  --color-background-main: #000000;
+  --color-background-light: #f2f2f7;
+  --color-surface-card: #f2f2f7;
+
+  --color-accent-green: #2cb84e;
+  --color-accent-green-strong: #14ae5c;
+
+  --color-text-primary: #ffffff;
+  --color-text-dark: #000000;
+
+  /* ===== Typography ===== */
+  --font-heading: 'Neon Goodshine', Helvetica, sans-serif;
+  --font-body: "Inter", Helvetica, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ===== Layout ===== */
+  --radius-small: 8px;
+  --radius-medium: 25px;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  --transition-fast: 0.2s ease;
+}

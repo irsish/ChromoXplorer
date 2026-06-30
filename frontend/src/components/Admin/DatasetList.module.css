@@ -1,0 +1,100 @@
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 12px;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: #9a6fae;
+  box-shadow: 0 3px 10px rgba(154, 111, 174, 0.15);
+}
+
+.activeCard {
+  border: 2px solid #9a6fae;
+  background: #f7efff;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.filename {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 2px 0 0;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activateButton {
+  background: #9a6fae;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activateButton:hover {
+  opacity: 0.9;
+}
+
+.deleteButton {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  opacity: 0.9;
+}
+
+.activeTag {
+  background: #9a6fae;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+  padding: 20px;
+}

@@ -1,0 +1,234 @@
+/* ==============================
+   ABOUT PAGE
+============================== */
+
+/* --- HERO --- */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 5rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+/* --- MISSION --- */
+
+.missionSection {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+  border-bottom: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.missionLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+  margin-bottom: var(--spacing-md);
+}
+
+.missionStatement {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  max-width: 820px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.missionAccent {
+  color: var(--color-accent-green);
+}
+
+.missionBody {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* --- SECTION SHARED LABELS --- */
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* --- THE CHALLENGE --- */
+
+.challengeSection {
+  padding: var(--spacing-xl) 0;
+}
+
+.challengeBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.challengeBody p {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.highlight {
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* --- OUR APPROACH --- */
+
+.approachSection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.approachHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.approachIntro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+}
+
+/* Pillar cards */
+
+.pillarCard {
+  background-color: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-lg);
+  height: 100%;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.pillarCard:hover {
+  background-color: rgba(44, 184, 78, 0.1);
+  border-color: rgba(44, 184, 78, 0.45);
+}
+
+.pillarNumber {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: rgba(44, 184, 78, 0.3);
+  line-height: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.pillarLabel {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.pillarDescription {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --- CLOSING CTA --- */
+
+.closingSection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+  text-align: center;
+}
+
+.closingContent {
+  max-width: 640px;
+}
+
+.closingHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+.closingBody {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin-bottom: var(--spacing-lg);
+}
+
+.closingButton {
+  display: inline-block;
+  background-color: var(--color-accent-green);
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-medium);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.closingButton:hover {
+  background-color: var(--color-accent-green-strong);
+  color: #000;
+  transform: translateY(-1px);
+}

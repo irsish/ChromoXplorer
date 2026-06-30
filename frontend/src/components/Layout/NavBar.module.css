@@ -1,0 +1,118 @@
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbarContainer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 0.5rem 1.5rem;
+}
+
+/* --- BRAND --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.brandName {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.1rem;
+  color: var(--color-text-primary) !important;
+}
+
+.logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 576px) {
+  .logo {
+    height: 36px;
+  }
+}
+
+/* --- MOBILE TOGGLER --- */
+.toggler {
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  outline: none;
+  box-shadow: none;
+  filter: invert(1);
+}
+
+/* --- NAV LINKS --- */
+
+/* Push nav links to center of the bar */
+.navCenter {
+  flex: 1;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--font-weight-regular);
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-primary) !important;
+}
+
+/* Active pill */
+.activeNavLink {
+  background-color: rgba(44, 184, 78, 0.15);
+  color: var(--color-accent-green) !important;
+  font-weight: var(--font-weight-semibold);
+}
+
+.activeNavLink:hover {
+  background-color: rgba(44, 184, 78, 0.2);
+  color: var(--color-accent-green) !important;
+}
+
+/* --- RIGHT SIDE ACTION BUTTONS --- */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .navActions {
+    margin-top: 0.75rem;
+    justify-content: flex-start;
+  }
+}
+
+/* Green action buttons */
+.actionButton {
+  background-color: var(--color-accent-green-strong) !important;
+  border-color: var(--color-accent-green-strong) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: var(--radius-small) !important;
+  padding: 0.4rem 0.875rem;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.9rem;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.actionButton:hover {
+  background-color: var(--color-accent-green) !important;
+  border-color: var(--color-accent-green) !important;
+}

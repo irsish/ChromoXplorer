@@ -1,0 +1,16 @@
+[
+  {
+    "id": "gm12878_chr1_1mb",
+    "name": "GM12878",
+    "description": "Human lymphoblastoid cell line. 1 Mb resolution Hi-C 3D genome model.",
+    "file": "GM12878.zip",
+    "active": true
+  },
+  {
+    "id": "imr90",
+    "name": "IMR90",
+    "description": "Human fetal lung fibroblast cell line. 1 Mb resolution Hi-C 3D genome model.",
+    "file": "IMR90.zip",
+    "active": false
+  }
+]

@@ -1,0 +1,73 @@
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.stars1,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  box-shadow: var(--star-shadows);
+  will-change: transform;
+}
+
+.stars1::after,
+.stars2::after,
+.stars3::after {
+  content: "";
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  background: transparent;
+  box-shadow: var(--star-shadows);
+}
+
+.stars1 {
+  width: 1px;
+  height: 1px;
+  animation: animStar 50s linear infinite;
+}
+
+.stars1::after {
+  width: 1px;
+  height: 1px;
+}
+
+.stars2 {
+  width: 2px;
+  height: 2px;
+  animation: animStar 100s linear infinite;
+}
+
+.stars2::after {
+  width: 2px;
+  height: 2px;
+}
+
+.stars3 {
+  width: 3px;
+  height: 3px;
+  animation: animStar 150s linear infinite;
+}
+
+.stars3::after {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-2000px);
+  }
+}

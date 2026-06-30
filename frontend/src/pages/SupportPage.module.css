@@ -1,0 +1,244 @@
+/* ==============================
+   SUPPORT PAGE
+============================== */
+
+/* --- HERO --- */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 640px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 5rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+/* --- FORM SECTION --- */
+
+.formSection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionIntro {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* --- FORM --- */
+
+.form {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.4rem;
+}
+
+.input {
+  width: 100%;
+  background-color: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.25);
+  border-radius: var(--radius-small);
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  appearance: none;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  background-color: rgba(44, 184, 78, 0.1);
+}
+
+.input option {
+  background-color: #111;
+  color: var(--color-text-primary);
+}
+
+.textarea {
+  width: 100%;
+  background-color: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.25);
+  border-radius: var(--radius-small);
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  resize: vertical;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  background-color: rgba(44, 184, 78, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.submitButton {
+  background-color: var(--color-accent-green);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-medium);
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--color-accent-green-strong);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- SUCCESS STATE --- */
+
+.successBox {
+  background-color: rgba(44, 184, 78, 0.08);
+  border: 1px solid rgba(44, 184, 78, 0.3);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.successText {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.emailLink {
+  color: var(--color-accent-green);
+  text-decoration: underline;
+}
+
+.resetButton {
+  background: transparent;
+  border: 1px solid rgba(44, 184, 78, 0.4);
+  border-radius: var(--radius-medium);
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-accent-green);
+  cursor: pointer;
+  width: fit-content;
+  transition: border-color var(--transition-fast);
+}
+
+.resetButton:hover {
+  border-color: var(--color-accent-green);
+}
+
+/* --- FALLBACK EMAIL SECTION --- */
+
+.fallbackSection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.fallbackCard {
+  background-color: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-lg);
+}
+
+.fallbackLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+  margin-bottom: var(--spacing-sm);
+}
+
+.fallbackText {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+.fallbackEmail {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-green);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.fallbackEmail:hover {
+  color: var(--color-accent-green-strong);
+  text-decoration: underline;
+}

@@ -1,0 +1,178 @@
+/* ==============================
+   SPLASH PAGE
+============================== */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 20vw, 6rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+.heroDescription {
+  max-width: 860px;
+  margin: var(--spacing-md) auto 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+}
+
+.heroButtonPrimary,
+.heroButtonSecondary {
+  border-radius: var(--radius-small);
+  padding: 0.75rem 1.35rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.heroButtonPrimary {
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+  border: none;
+}
+
+.heroButtonSecondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(209, 209, 214, 0.6);
+}
+
+.heroButtonPrimary:hover,
+.heroButtonSecondary:hover {
+  transform: translateY(-1px);
+}
+
+.cardSection {
+  background-color: transparent;
+  padding: var(--spacing-xl) 0;
+}
+
+.introBlock {
+  background-color: rgba(209, 209, 214, 0.2);
+  border: 1px solid rgba(209, 209, 214, 0.3);
+  border-radius: 32px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.introHeading {
+  margin: 0 0 var(--spacing-sm);
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--color-text-primary);
+}
+
+.introText {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+.card {
+  background-color: rgba(209, 209, 214, 0.41);
+  border-radius: 45px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 11px 0 11px;
+  height: 100%;
+}
+
+.cardImage {
+  border-radius: var(--radius-medium);
+  height: 224px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  background-color: rgba(227, 227, 227, 1);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+  flex: 1;
+  overflow: hidden;
+}
+
+.cardTitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-dark);
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-sm) 0 var(--spacing-md) 0;
+  margin-top: auto;
+}
+
+.cardButton {
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.cardButton:hover {
+  background-color: var(--color-accent-green-strong);
+}

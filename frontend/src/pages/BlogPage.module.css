@@ -1,0 +1,108 @@
+/* ==============================
+   BLOG PAGE
+============================== */
+
+/* --- HERO --- */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 5rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+/* BLOG SECTION */
+
+.blogSection {
+  padding-bottom: 80px;
+}
+
+.blogRow {
+  --bs-gutter-y: 1.5rem;
+  background-color: white;
+  border-radius: 30px;
+}
+
+/* SIDENAV */
+
+.navItem {
+  list-style: none;
+  margin-bottom: 10px;
+  background-color: rgba(209, 209, 214, 0.41);
+  border-radius: 35px;
+}
+
+.navLink {
+  display: block;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  color: #2a69c7;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--color-accent-green-strong);
+  transform: translateX(3px);
+}
+
+/* CARD SECTION */
+
+.card {
+  background-color: rgba(209, 209, 214, 0.41);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-align: center;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  text-align: center;
+}
+

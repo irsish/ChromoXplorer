@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  min-height: 80vh;
+}
+
+.header {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  flex: 1;
+  padding: 25px;
+  background: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: var(--radius-medium);
+  backdrop-filter: blur(8px);
+}
+
+.notLoggedIn {
+  padding: 80px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+.loading {
+  padding: 80px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}

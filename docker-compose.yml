@@ -24,6 +24,17 @@ services:
       NODE_ENV: ${NODE_ENV:-development}
       MONGODB_URI: ${MONGODB_URI}
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      COGNITO_ISSUER: ${COGNITO_ISSUER:-}
+      COGNITO_REGION: ${COGNITO_REGION:-${AWS_REGION:-us-east-1}}
+      COGNITO_USER_POOL_ID: ${COGNITO_USER_POOL_ID:-}
+      COGNITO_ADMIN_GROUP: ${COGNITO_ADMIN_GROUP:-admin}
+      VITE_COGNITO_AUTHORITY: ${VITE_COGNITO_AUTHORITY:-}
+      COGNITO_CLIENT_ID: ${COGNITO_CLIENT_ID:-${VITE_COGNITO_CLIENT_ID}}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME:-}
+      AWS_S3_BUCKET_URL: ${AWS_S3_BUCKET_URL:-}
     ports:
       - "3000:3000"
     depends_on:
@@ -36,10 +47,12 @@ services:
         VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000}
         VITE_COGNITO_AUTHORITY: ${VITE_COGNITO_AUTHORITY}
         VITE_COGNITO_CLIENT_ID: ${VITE_COGNITO_CLIENT_ID}
+        VITE_COGNITO_DOMAIN: ${VITE_COGNITO_DOMAIN:-}
+        VITE_SITE_URL: ${VITE_SITE_URL:-https://chromoxplorer.org}
+        VITE_GOOGLE_SITE_VERIFICATION: ${VITE_GOOGLE_SITE_VERIFICATION:-}
+        VITE_SUPPORT_EMAIL: ${VITE_SUPPORT_EMAIL:-support@chromoxplorer.com}
     container_name: frontend
     restart: always
-    ports:
-      - "80:80"
     depends_on:
       - backend
 

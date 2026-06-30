@@ -1,0 +1,95 @@
+/* ==============================
+   TERMS OF SERVICE PAGE
+============================== */
+
+/* --- HERO --- */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 700px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 5rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+/* --- META / INTRO --- */
+
+.metaSection {
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.effectiveDate {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--spacing-md);
+}
+
+.effectiveDate strong {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: var(--font-weight-semibold);
+}
+
+.intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* --- CONTENT --- */
+
+.contentSection {
+  padding-bottom: var(--spacing-xl);
+}
+
+.tosSection {
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.1);
+}
+
+.tosSection:first-child {
+  border-top: none;
+}
+
+.sectionTitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-green);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.01em;
+}
+
+.sectionText {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin: 0;
+}

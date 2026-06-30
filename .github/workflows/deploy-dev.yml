@@ -1,0 +1,31 @@
+name: Deploy to DEV (Docker)
+
+on:
+  push:
+    branches: ["dev"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: "backend,frontend,docker-compose.yml,docker-compose.dev.yml,mongo-init.js"
+          target: "/home/ubuntu/apps/dev"
+      - name: Rebuild and restart containers
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          command_timeout: 30m
+          script: |
+            set -e
+            cd /home/ubuntu/apps/dev
+            docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build

@@ -1,0 +1,170 @@
+/* ==============================
+   FAQ PAGE
+============================== */
+
+/* --- HERO --- */
+
+.hero {
+  color: var(--color-text-primary);
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 700px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 5rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: "POLDER-Regular", Helvetica, sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--color-accent-green-strong);
+  margin-top: var(--spacing-md);
+}
+
+/* --- CATEGORY SECTIONS --- */
+
+.categorySection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.categoryHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* --- FAQ LIST --- */
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* --- FAQ ITEM --- */
+
+.faqItem {
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faqItem:hover,
+.faqItemOpen {
+  border-color: rgba(44, 184, 78, 0.45);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(44, 184, 78, 0.06);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.faqItemOpen .faqQuestion {
+  background: rgba(44, 184, 78, 0.1);
+}
+
+.faqChevron {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-accent-green);
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+.faqChevronOpen {
+  transform: rotate(90deg);
+}
+
+.faqAnswer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(44, 184, 78, 0.04);
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+}
+
+.faqAnswer p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* --- CLOSING CTA --- */
+
+.closingSection {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(44, 184, 78, 0.15);
+  text-align: center;
+}
+
+.closingContent {
+  max-width: 560px;
+}
+
+.closingHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+.closingBody {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin-bottom: var(--spacing-lg);
+}
+
+.closingButton {
+  display: inline-block;
+  background-color: var(--color-accent-green);
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-medium);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.closingButton:hover {
+  background-color: var(--color-accent-green-strong);
+  color: #000;
+  transform: translateY(-1px);
+}

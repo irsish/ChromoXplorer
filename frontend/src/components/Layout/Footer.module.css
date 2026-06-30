@@ -1,0 +1,67 @@
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-text-primary);
+  padding: 3rem 0 1.5rem 0;
+  margin-top: var(--spacing-xl);
+}
+
+.footerLogo {
+  max-width: 90px;
+  height: auto;
+}
+
+/* Add a left border divider on md+ screens to separate columns */
+.footerCol {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .footerCol {
+    border-left: none;
+    padding-left: 0.75rem;
+  }
+}
+
+.footerTitle {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.footerLink {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  opacity: 0.85;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+.footerLink:hover {
+  opacity: 1;
+  color: var(--color-accent-green);
+}
+
+/* Bottom copyright bar */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  opacity: 0.75;
+}

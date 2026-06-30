@@ -1,0 +1,339 @@
+/* ==============================
+   PROFILE COMPLETION — ONBOARDING WIZARD
+============================== */
+
+/* --- FULL-SCREEN PAGE --- */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+}
+
+/* --- CENTERED CONTAINER --- */
+.container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* --- HEADER --- */
+.header {
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 8vw, 3.25rem);
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* --- STEP INDICATOR --- */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.4);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.stepDotActive {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+.stepDotDone {
+  background-color: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: #000;
+}
+
+.stepLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.stepLabelActive {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stepConnector {
+  width: 48px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0 0.5rem;
+  transition: background-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.stepConnectorDone {
+  background-color: var(--color-accent-green);
+}
+
+/* --- CARD --- */
+.card {
+  width: 100%;
+  background-color: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* --- STEP CONTENT WRAPPER --- */
+.stepContent {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.slideInBack {
+  animation: slideInBack 0.3s ease forwards;
+}
+
+@keyframes slideInBack {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* --- STEP HEADER --- */
+.stepHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stepTag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-green);
+}
+
+.stepTitle {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  margin: 0;
+}
+
+.stepDescription {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- FIELDS --- */
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.02em;
+}
+
+/* --- INPUTS --- */
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-small);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  background-color: rgba(44, 184, 78, 0.08);
+}
+
+.input:disabled,
+.textarea:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* --- CHECKBOX --- */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxContainer input {
+  accent-color: var(--color-accent-green);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* --- ACTIONS ROW --- */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.primaryButton {
+  background-color: var(--color-accent-green);
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  padding: 0.65rem 1.75rem;
+  border-radius: var(--radius-medium);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  margin-left: auto;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-accent-green-strong);
+  transform: translateY(-1px);
+}
+
+.backButton {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.backButton:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.skipButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.65rem 0;
+  transition: color var(--transition-fast);
+}
+
+.skipButton:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* --- FOOTER NOTE --- */
+.footerNote {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+
+  .stepContent {
+    padding: var(--spacing-md);
+  }
+}

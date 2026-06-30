@@ -1,12 +1,32 @@
 # Local development overrides — auto-loaded by Docker Compose when you run
-# `docker compose up` in this directory.
+# `docker compose up` (or `docker compose up --watch`) in this directory.
 #
 # This file is NOT deployed to servers. The GH Actions SCP step only copies
 # specific listed files, so this never reaches dev or prod.
 #
-# What it does: mounts an HTTP-only nginx config over the SSL one baked into
-# the image, so you don't need Let's Encrypt certs locally.
+# What it does: switches the frontend to Vite's dev server (port 5173) so you
+# get HMR and docker compose watch file syncing instead of a static nginx build.
 services:
   frontend:
-    volumes:
-      - ./frontend/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
+    build:
+      target: dev
+    ports:
+      - "80:80"
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000}
+      VITE_COGNITO_AUTHORITY: ${VITE_COGNITO_AUTHORITY:-}
+      VITE_COGNITO_CLIENT_ID: ${VITE_COGNITO_CLIENT_ID:-}
+      VITE_COGNITO_DOMAIN: ${VITE_COGNITO_DOMAIN:-}
+      VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:5173}
+      VITE_GOOGLE_SITE_VERIFICATION: ${VITE_GOOGLE_SITE_VERIFICATION:-}
+      VITE_SUPPORT_EMAIL: ${VITE_SUPPORT_EMAIL:-support@chromoxplorer.com}
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+        - action: rebuild
+          path: ./frontend/package.json

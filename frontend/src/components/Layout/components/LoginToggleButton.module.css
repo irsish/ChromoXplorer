@@ -1,0 +1,13 @@
+.purpleButton {
+  background-color: var(--color-accent-green-strong) !important;
+  border-color: var(--color-accent-green-strong) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+.purpleButton:hover {
+  background-color: var(--color-accent-green) !important;
+  border-color: var(--color-accent-green) !important;
+}

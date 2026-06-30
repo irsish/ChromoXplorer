@@ -1,0 +1,98 @@
+.eyebrow {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-green);
+}
+
+.header {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.subtext {
+  max-width: 58ch;
+  margin: 0.85rem 0 2rem;
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.featureCard {
+  background: rgba(44, 184, 78, 0.06);
+  border: 1px solid rgba(44, 184, 78, 0.2);
+  border-radius: var(--radius-medium);
+  padding: 1.5rem;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.featureCard:hover {
+  background: rgba(44, 184, 78, 0.1);
+  border-color: rgba(44, 184, 78, 0.4);
+}
+
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.cardText {
+  margin: 0;
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.actionButton {
+  align-self: flex-start;
+  min-width: 150px;
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 0.65rem 1.15rem;
+  background: var(--color-accent-green);
+  color: #000;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.actionButton:hover:not(:disabled) {
+  background: var(--color-accent-green-strong);
+  transform: translateY(-1px);
+}
+
+.actionButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

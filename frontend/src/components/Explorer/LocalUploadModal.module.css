@@ -1,0 +1,231 @@
+/* LocalUploadModal.module.css */
+
+/* ── Overlay ─────────────────────────────────────────────────────────────── */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.modalCard {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: rgba(20, 174, 92, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 2rem 2rem 1.75rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* ── Close button ────────────────────────────────────────────────────────── */
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1.1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.closeButton:hover {
+    color: #fff;
+}
+
+/* ── Header text ─────────────────────────────────────────────────────────── */
+.modalEyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0 0 0.3rem;
+}
+
+.modalTitle {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+}
+
+.modalSubtitle {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+}
+
+.modalTemplateLink {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-accent-green-strong);
+    font-size: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.modalTemplateLink:hover {
+    color: #fff;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────────── */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* ── Field card ──────────────────────────────────────────────────────────── */
+.fieldCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+}
+
+.fieldLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.03em;
+}
+
+.fieldHelp {
+    font-size: 0.73rem;
+    color: rgba(255, 255, 255, 0.3);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+}
+
+.textInput {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.88rem;
+    padding: 0.5rem 0.75rem;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.textInput::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.textInput:focus {
+    border-color: var(--color-accent-green-strong);
+}
+
+/* ── Upload drop zone ────────────────────────────────────────────────────── */
+.uploadCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 1.4rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    text-align: center;
+}
+
+.uploadCard:hover {
+    border-color: var(--color-accent-green-strong);
+    background: rgba(20, 174, 92, 0.08);
+}
+
+.fileInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.uploadGraphic {
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-green-strong);
+    margin-bottom: 0.2rem;
+}
+
+.uploadText {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.uploadHint {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Error ───────────────────────────────────────────────────────────────── */
+.uploadError {
+    font-size: 0.8rem;
+    color: #ff6b6b;
+    background: rgba(255, 80, 80, 0.1);
+    border: 1px solid rgba(255, 80, 80, 0.25);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* ── Submit button ───────────────────────────────────────────────────────── */
+.modalSaveButton {
+    margin-top: 0.25rem;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background-color: var(--color-accent-green-strong);
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background-color 0.15s, opacity 0.15s;
+}
+
+.modalSaveButton:hover:not(:disabled) {
+    background-color: var(--color-accent-green);
+}
+
+.modalSaveButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

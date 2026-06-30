@@ -1,0 +1,64 @@
+/* ExplorerTopBar.module.css */
+
+/* ── Upload My Cell button ───────────────────────────────────────────────── */
+.uploadCellButton {
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    flex-shrink: 0;
+}
+
+.uploadCellButton:hover {
+    background-color: var(--color-accent-green);
+    border-color: #ffffff;
+}
+
+/* ── Local mode pill ─────────────────────────────────────────────────────── */
+/* ── Local mode pill — mirrors the cell selector dropdown ───────────────── */
+.localModePill {
+    display: inline-flex;
+    align-items: center;
+    min-width: 240px;
+    border-radius: 17px;
+    background-color: var(--bs-body-bg, #fff);
+    border: 1px solid var(--bs-border-color, #ced4da);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--bs-body-color, #212529);
+    gap: 0.5rem;
+    height: calc(1.5em + 0.75rem + 2px); /* matches Bootstrap form-select height */
+}
+
+.localModeLabel {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+    color: inherit;
+}
+
+.clearLocalButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: rgba(0, 128, 0, 0.1); /* subtle green */
+    border: 1px solid var(--color-accent-green);
+    border-radius: 50%;
+    color: var(--color-accent-green);
+    font-size: 0.85rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.clearLocalButton:hover {
+    background: var(--color-accent-green);
+    border-color: var(--color-accent-green);
+    color: #ffffff;
+}
